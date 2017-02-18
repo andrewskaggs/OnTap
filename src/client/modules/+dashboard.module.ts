@@ -1,7 +1,7 @@
 import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {SharedModule} from './shared.module';
-import {DashboardComponent} from '../components';
+import {DashboardComponent} from '../components/dashboard';
 
 @NgModule({
     imports: [
@@ -13,7 +13,7 @@ import {DashboardComponent} from '../components';
         )
     ],
     declarations: [
-        DashboardComponent
+        DashboardComponent,
     ],
     exports: [
         DashboardComponent,

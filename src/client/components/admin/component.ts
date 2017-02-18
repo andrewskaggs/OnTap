@@ -7,11 +7,11 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
     templateUrl: './template.html',
     styleUrls: ['./styles.scss']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class AdminComponent implements OnInit, OnDestroy {
     private subscriptions = [];
 
-    private taps: Tap[] = [];
-    private locations: Location[] = [];
+    private taps: (Tap|{})[] = [];
+    private locations: (Location|{})[] = [];
     constructor(
         private _tapService: TapService,
         private _locationService: LocationService
@@ -32,5 +32,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.subscriptions.forEach(sub => sub.unsubscribe());
         this.subscriptions = [];
+    }
+
+    private addTap() {
+        this.taps.push({});
+    }
+
+    private addLocation() {
+        this.locations.push({});
     }
 }

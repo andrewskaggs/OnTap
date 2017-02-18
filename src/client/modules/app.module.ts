@@ -1,3 +1,4 @@
+import {ALL_PROVIDERS} from '../services';
 import {CommonModule} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -13,13 +14,14 @@ import { AppComponent } from '../components/';
     RouterModule.forRoot(
       [
         { path: '', loadChildren: './+dashboard.module.ts#LazyDashboardModule' },
+        { path: 'admin', loadChildren: './+admin.module.ts#LazyAdminModule' },
       ]
     )
   ],
   declarations: [
     AppComponent,
   ],
-  providers: [],
+  providers: ALL_PROVIDERS,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

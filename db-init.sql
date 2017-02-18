@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `beers` (
   `BDBID` varchar(32) NOT NULL,
   PRIMARY KEY (`BeerId`),
   UNIQUE KEY `BeerId_UNIQUE` (`BeerId`),
-  UNIQUE KEY `UN_BeerID_API` (`BrewDBID`),
+  UNIQUE KEY `UN_BeerID_API` (`BDBID`),
   KEY `Brewery_idx` (`BreweryId`),
   KEY `Style_idx` (`StyleId`),
   CONSTRAINT `Brewery` FOREIGN KEY (`BreweryId`) REFERENCES `breweries` (`BreweryId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `beer_sessions` (
   CONSTRAINT `FK_Beer` FOREIGN KEY (`BeerId`) REFERENCES `beers` (`BeerId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_Tap` FOREIGN KEY (`TapId`) REFERENCES `taps` (`TapId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Record of beer taptimes';
+
 
 
 CREATE TABLE IF NOT EXISTS `off_tap_kegs` (
